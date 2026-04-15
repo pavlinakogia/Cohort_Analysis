@@ -23,4 +23,4 @@ This project analyzes customer retention for a UK-based online retail store. Usi
 
 ## Power BI Dashboard
 I also replicated the analysis in Power BI to create an interactive version.
-![Power BI Heatmap](outputs/powerbi_heatmap.png)
+[Power BI Heatmap](outputs --> powerbi_heatmap.png)
