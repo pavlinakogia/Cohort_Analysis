@@ -20,3 +20,7 @@ This project analyzes customer retention for a UK-based online retail store. Usi
 1. Run the SQL scripts in `sql_queries/` on the retail database.
 2. Export results to `data/cohort_retention.csv`.
 3. Execute `scripts/visualization.py` to generate the heatmap.
+
+## Power BI Dashboard
+I also replicated the analysis in Power BI to create an interactive version.
+![Power BI Heatmap](outputs/powerbi_heatmap.png)
