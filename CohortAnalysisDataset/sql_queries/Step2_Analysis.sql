@@ -11,7 +11,6 @@ GROUP BY CustomerID;
 
 WITH base AS (SELECT CustomerID,
                      -- Φτιάχνουμε την ημερομηνία σε σωστή μορφή YYYY-MM-DD
-                     -- Χρησιμοποιούμε την αντικατάσταση για να βεβαιωθούμε ότι η SQL την καταλαβαίνει
                      CASE
                          WHEN instr(InvoiceDate, ' ') > 0 THEN substr(InvoiceDate, 1, instr(InvoiceDate, ' ') - 1)
                          ELSE InvoiceDate
@@ -19,10 +18,7 @@ WITH base AS (SELECT CustomerID,
                      InvoiceDate
               FROM retail_cleaned),
      formatted_dates AS (SELECT CustomerID,
-                                -- Εδώ κάνουμε το "μαγικό": Μετατρέπουμε το M/D/YYYY σε YYYY-MM-DD
-                                -- Χρησιμοποιούμε την ημερομηνία όπως είναι και αφήνουμε την SQLite να την "μαντέψει"
-                                -- ή την φτιάχνουμε χειροκίνητα αν χρειαστεί.
-                                -- Δοκιμάζουμε την πιο συμβατή μέθοδο:
+                                -- Μετατρέπουμε το M/D/YYYY σε YYYY-MM-DD
                                 substr(short_date, -4) || '-' ||
                                 printf('%02d', CASE
                                                    WHEN instr(short_date, '/') = 2 THEN substr(short_date, 1, 1)
